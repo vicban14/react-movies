@@ -1,0 +1,20 @@
+@import '../../styles/Colors.scss';
+
+header {
+  background-color: $darkest;
+  display: flex;
+  justify-content: space-between;
+  height: 3em;
+  max-height: 3em;
+  padding: 1em;
+
+  span {
+    color: $light;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  span:hover {
+    color: $solid;
+  }
+}
