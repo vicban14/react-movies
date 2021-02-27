@@ -1,24 +1,27 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import env from 'react-dotenv'
-import apiService from '../../api/apiService'
+import { Context as MovieContext} from '../../context/MoviesDataContext'
+import Movie from '../Movie/Movie'
 
 const Movies = (props) => {
   const movieType = props.match.params.movieType
+  const { state, getPopularMovies } = useContext(MovieContext)
 
   useEffect(() => {
-    apiService.get(`${movieType}?api_key=${env.API_MOVIE_DB}`)
-    .then((response) => {
-      console.log(response)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
+    getPopularMovies( { movieType } )
   }, [])
 
   return (
-    <div>
-      Tipo de película: {movieType}
-    </div>
+    <>
+      <span>Tipo de película: {movieType}</span>
+      {console.log(state)}
+      {state.movies.map((movie, i) => (
+        <div key={i} >
+          <Movie movieData={movie} />
+        </div>
+      )
+      )}
+    </>
   )
 }
 

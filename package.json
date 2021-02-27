@@ -40,6 +40,10 @@
     ]
   },
   "react-dotenv": {
-    "whitelist": ["API_MOVIE_DB", "DB_BASE_URL"]
+    "whitelist": [
+      "API_MOVIE_DB",
+      "DB_BASE_URL",
+      "IMAGES_BASE_URL"
+    ]
   }
 }
