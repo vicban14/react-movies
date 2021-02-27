@@ -1,12 +1,19 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import './Header.scss'
 
 const Header = () => {
   return (
     <header>
-      <span className="populares">POPULARES</span>
-      <span className="upcoming">PRÓXIMOS ESTRENOS</span>
-      <span className="top-rated">MÁS VOTADAS</span>
+      <NavLink to='/popular'>
+        <span className='popular'>POPULARES</span>
+      </NavLink>
+      <NavLink to='/upcoming'>
+        <span className='upcoming'>PRÓXIMOS ESTRENOS</span>
+      </NavLink>
+      <NavLink to='/top_rated'>
+        <span className='top-rated'>MÁS VOTADAS</span>
+      </NavLink>
     </header>
   )
 }

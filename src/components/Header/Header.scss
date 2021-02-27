@@ -8,13 +8,15 @@ header {
   max-height: 3em;
   padding: 1em;
 
-  span {
-    color: $light;
-    font-weight: bold;
-    cursor: pointer;
-  }
+  a {
+    span {
+      color: $light;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-  span:hover {
-    color: $solid;
+    span:hover {
+      color: $solid;
+    }
   }
 }
