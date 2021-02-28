@@ -12,7 +12,7 @@ const moviesReducer = (state, action)  => {
 }
 
 const getPopularMovies = (dispatch) => async ( { movieType } ) => {
-  await apiService.get(`${movieType}?api_key=${env.API_MOVIE_DB}&language=es-ES`)
+  await apiService.get(`${movieType}?api_key=${env.API_MOVIE_DB}&language=es-ES&region=ES`)
   .then((response) => {
     dispatch({ type: 'GET_POPULAR_MOVIES', payload: response.data.results })
   })

@@ -3,20 +3,45 @@
 header {
   background-color: $darkest;
   display: flex;
-  justify-content: space-between;
-  height: 3em;
-  max-height: 3em;
+  justify-content: flex-start;
+  align-items: center;
+  height: 4em;
+  max-height: 4em;
   padding: 1em;
 
   a {
-    span {
+    display: flex;
+    align-items: center;
+    margin-right: 4em;
+    margin-left: 1.5em;
+
+    span,
+    .logo,
+    h1 {
       color: $light;
       font-weight: bold;
       cursor: pointer;
     }
 
-    span:hover {
+    span:hover,
+    h1:hover {
       color: $solid;
+    }
+
+    .logo {
+      height: 30px;
+    }
+
+    .logo:hover ~ h1 {
+      color: $solid;
+    }
+
+    h1 {
+      color: $light;
+      font-size: 1em;
+      line-height: 90%;
+      max-width: 65px;
+      margin-left: 5px;
     }
   }
 }
