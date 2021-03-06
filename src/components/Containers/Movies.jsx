@@ -1,7 +1,14 @@
 import React, { useEffect, useContext } from 'react'
+import { NavLink } from 'react-router-dom'
 import { Context as MovieContext} from '../../context/MoviesDataContext'
 import Movie from '../Movie/Movie'
 import './Movies.scss'
+
+const H2_HEADING_OPTIONS = {
+  popular: 'Películas populares',
+  upcoming: 'Próximos estrenos',
+  top_rated: 'Las más votadas'
+}
 
 const Movies = (props) => {
   const movieType = props.match.params.movieType
@@ -9,20 +16,32 @@ const Movies = (props) => {
 
   useEffect(() => {
     getPopularMovies( { movieType } )
-  }, [])
+  }, [ movieType ])
 
   return (
-    <>
-      <span>{movieType.charAt(0).toUpperCase() + movieType.slice(1)}</span>
+    <section>
+      <h2 id='pageTitle'>{H2_HEADING_OPTIONS[movieType]}</h2>
       <div className='movieContainer'>
-      {state.movies.map((movie, i) => (
-        <div key={i} className='movie' >
-          <Movie movieData={movie} />
-        </div>
-      )
+      {state.movies.map((movie, i) => {
+        if (movieType === 'popular') {
+          if (i <= 10 ) return createMovieContainer(movie, i)
+        } else {
+            return createMovieContainer(movie, i)
+          }
+        }
       )}
       </div>
-    </>
+    </section>
+  )
+}
+
+function createMovieContainer(movie, i) {
+  return (
+    <div key={i} className='movie' >
+    <NavLink to={`/movies/${movie.id}`}>
+      <Movie movieData={movie} />
+    </NavLink>
+  </div>
   )
 }
 
