@@ -12,19 +12,19 @@ const H2_HEADING_OPTIONS = {
 
 const Movies = (props) => {
   const movieType = props.match.params.movieType
-  const { state, getPopularMovies } = useContext(MovieContext)
+  const { state, getMoviesByCategory } = useContext(MovieContext)
 
   useEffect(() => {
-    getPopularMovies( { movieType } )
+    getMoviesByCategory( { movieType } )
   }, [ movieType ])
 
   return (
-    <section>
+    <section id='movieListSection' >
       <h2 id='pageTitle'>{H2_HEADING_OPTIONS[movieType]}</h2>
       <div className='movieContainer'>
       {state.movies.map((movie, i) => {
         if (movieType === 'popular') {
-          if (i <= 10 ) return createMovieContainer(movie, i)
+          if (i <= 9 ) return createMovieContainer(movie, i)
         } else {
             return createMovieContainer(movie, i)
           }
@@ -38,9 +38,9 @@ const Movies = (props) => {
 function createMovieContainer(movie, i) {
   return (
     <div key={i} className='movie' >
-    <NavLink to={`/movies/${movie.id}`}>
-      <Movie movieData={movie} />
-    </NavLink>
+      <NavLink to={`/movies/${movie.id}`}>
+        <Movie movieData={movie} />
+      </NavLink>
   </div>
   )
 }
