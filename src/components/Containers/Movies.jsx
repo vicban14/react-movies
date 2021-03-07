@@ -11,7 +11,7 @@ const H2_HEADING_OPTIONS = {
 }
 
 const Movies = (props) => {
-  const movieType = props.match.params.movieType
+  const movieType = props.match.params.movieType || 'now_playing'
   const { state, getMoviesByCategory } = useContext(MovieContext)
 
   useEffect(() => {
