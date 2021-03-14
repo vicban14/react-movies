@@ -45,9 +45,19 @@ const getSimilarMoviesById = (dispatch) => async ({movieId}) => {
   })
 }
 
+const searchMovieByTitle = (dispatch) => async ({text}) => {
+  await apiService.get(`/search/${text}/`)
+  .then((response) => {
+    dispatch({ type: 'GET_MOVIE_BY_TITLE', payload: response.data.results })
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+}
+
 
 export const { Context, Provider } = createDataContext(
   moviesReducer,
-  { getMoviesByCategory, getMovieById, getSimilarMoviesById },
+  { getMoviesByCategory, getMovieById, getSimilarMoviesById, searchMovieByTitle },
   { movies: [], movieDataInfo: undefined, similarMovies: [] }
 )

@@ -11,7 +11,7 @@ const SimilarMovies = ({movieId}) => {
     if (movieId) {
       getSimilarMoviesById({ movieId })
     }
-  }, [])
+  }, [movieId])
 
   return (
     <section>
