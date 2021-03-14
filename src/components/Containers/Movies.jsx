@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Context as MovieContext} from '../../context/MoviesDataContext'
 import Movie from '../Movie/Movie'
+import SearchBar from '../SearchBar/SearchBar'
 import './Movies.scss'
 
 const H2_HEADING_OPTIONS = {
@@ -19,19 +20,22 @@ const Movies = (props) => {
   }, [ movieType ])
 
   return (
-    <section id='movieListSection' >
-      <h2 id='pageTitle'>{H2_HEADING_OPTIONS[movieType]}</h2>
-      <div className='movieContainer'>
-      {state.movies.map((movie, i) => {
-        if (movieType === 'popular') {
-          if (i <= 9 ) return createMovieContainer(movie, i)
-        } else {
-            return createMovieContainer(movie, i)
+    <>
+      <SearchBar navHistory={props.history} />
+      <section id='movieListSection' >
+        <h2 id='pageTitle'>{H2_HEADING_OPTIONS[movieType]}</h2>
+        <div className='movieContainer'>
+        {state.movies.map((movie, i) => {
+          if (movieType === 'popular') {
+            if (i <= 9 ) return createMovieContainer(movie, i)
+          } else {
+              return createMovieContainer(movie, i)
+            }
           }
-        }
-      )}
-      </div>
-    </section>
+        )}
+        </div>
+      </section>
+    </>
   )
 }
 

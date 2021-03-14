@@ -1,6 +1,6 @@
 import React from 'react'
 import './styles/App.scss'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Movies from './components/Containers/Movies'
 import MovieDetail from './components/MovieDetail/MovieDetail'
@@ -14,6 +14,7 @@ function App() {
         <Switch>
           <Route path='/' component={Movies} exact />
           <Route path='/:movieType' component={Movies} exact/>
+          <Route path='/movies' component={Movies} exact />
           <Route path='/movies/:movieId' component={MovieDetail} exact/>
         </Switch>
         <Footer />

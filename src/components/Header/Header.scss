@@ -1,47 +1,52 @@
 @import '../../styles/Colors.scss';
 
 header {
+  align-items: center;
   background-color: $darkest;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   height: 4.5em;
+  justify-content: space-between;
   max-height: 4.5em;
   padding: 1em;
 
-  a {
+  div {
     display: flex;
-    align-items: center;
-    margin-right: 4em;
-    margin-left: 1.5em;
+    justify-content: flex-start;
 
-    span,
-    .logo,
-    h1 {
-      color: $light;
-      font-weight: bold;
-      cursor: pointer;
-    }
+    a {
+      align-items: center;
+      display: flex;
+      margin-right: 4em;
+      margin-left: 1.5em;
 
-    span:hover,
-    h1:hover {
-      color: $solid;
-    }
+      span,
+      .logo,
+      h1 {
+        color: $light;
+        font-weight: bold;
+        cursor: pointer;
+      }
 
-    .logo {
-      height: 30px;
-    }
+      span:hover,
+      h1:hover {
+        color: $solid;
+      }
 
-    .logo:hover ~ h1 {
-      color: $solid;
-    }
+      .logo {
+        height: 30px;
+      }
 
-    h1 {
-      color: $light;
-      font-size: 1em;
-      line-height: 90%;
-      max-width: 65px;
-      margin-left: 5px;
+      .logo:hover ~ h1 {
+        color: $solid;
+      }
+
+      h1 {
+        color: $light;
+        font-size: 1em;
+        line-height: 90%;
+        max-width: 65px;
+        margin-left: 5px;
+      }
     }
   }
 }
