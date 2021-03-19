@@ -1,8 +1,5 @@
 @import '../../styles/Colors.scss';
 
-$container-height: 22em;
-$container-width: 12em;
-
 #movieListSection {
   h2 {
     margin: 1em 0em 0em 2.8em;
@@ -13,61 +10,4 @@ $container-width: 12em;
   margin: 1em 3em;
   display: flex;
   flex-wrap: wrap;
-
-  .movie {
-    border-radius: 15px;
-    box-shadow: 0px 0px 5px $dark;
-    display: flex;
-    flex-direction: column;
-    height: $container-height;
-    margin: 2em 1em;
-    width: $container-width;
-    a {
-      img {
-        border-bottom: 1px solid $light;
-        border-radius: 15px 15px 0px 0px;
-        max-width: $container-width;
-        height: 17em;
-        width: 12em;
-      }
-
-      div {
-        align-items: center;
-        height: 5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 0 1em;
-        text-align: center;
-
-        h3 {
-          font-size: 0.9em;
-        }
-
-        .releaseDate {
-          color: $dark;
-          font-size: 0.8em;
-        }
-      }
-
-      .average {
-        align-items: center;
-        background-color: $darkest;
-        border: 3px solid $solid;
-        border-radius: 50%;
-        display: flex;
-        height: 2.3em;
-        justify-content: center;
-        margin: 1em 9em;
-        position: absolute;
-        width: 2em;
-
-        p {
-          color: $solid;
-          font-weight: bolder;
-          font-size: 0.8em;
-        }
-      }
-    }
-  }
 }

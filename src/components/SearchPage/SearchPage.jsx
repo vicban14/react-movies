@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { Context as MovieContext } from '../../context/MoviesDataContext.js'
+import Movie from '../Movie/Movie.jsx'
 import './SearchPage.scss'
 
 function SearchPage() {
@@ -17,7 +18,7 @@ const mapFilms = (state) => {
     return state.moviesSearchResult.map((movie, i) => {
       return (
         <div className='searchedMovieContainer' key={i} >
-          <span>{movie.title}</span>
+          <Movie movieData={movie} page='search' />
         </div>
       )
     })

@@ -41,11 +41,9 @@ const Movies = (props) => {
 
 function createMovieContainer(movie, i) {
   return (
-    <div key={i} className='movie' >
-      <NavLink to={`/movies/${movie.id}`}>
-        <Movie movieData={movie} />
-      </NavLink>
-  </div>
+    <NavLink key={i} to={`/movies/${movie.id}`}>
+      <Movie movieData={movie} />
+    </NavLink>
   )
 }
 

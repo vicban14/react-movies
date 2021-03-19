@@ -1,8 +1,9 @@
 import React from 'react'
+import './Movie.scss'
 
 const Movie = ({ movieData }) => {
   return (
-    <>
+    <div className='movie'>
       <div className='average'>
         <p>{movieData.vote_average}</p>
       </div>
@@ -11,7 +12,7 @@ const Movie = ({ movieData }) => {
         <h3>{movieData.title}</h3>
         <p className='releaseDate'>{movieData.release_date}</p>
       </div>
-    </>
+    </div>
   )
 }
 
