@@ -1,9 +1,9 @@
 import React, { useReducer } from 'react'
 
-export default function createDataContext(reducer, actions, initialState) {
+export const createDataContext = (reducer, actions, initialState) => {
   const Context = React.createContext();
 
-  function Provider({ children }) {
+  const Provider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     const boundActions = {};

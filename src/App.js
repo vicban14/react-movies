@@ -1,10 +1,11 @@
 import React from 'react'
 import './styles/App.scss'
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Movies from './components/Containers/Movies'
 import MovieDetail from './components/MovieDetail/MovieDetail'
 import Footer from './components/Footer/Footer'
+import SearchPage from './components/SearchPage/SearchPage'
 
 function App() {
   return (
@@ -13,9 +14,9 @@ function App() {
         <Header />
         <Switch>
           <Route path='/' component={Movies} exact />
-          <Route path='/:movieType' component={Movies} exact/>
-          <Route path='/movies' component={Movies} exact />
-          <Route path='/movies/:movieId' component={MovieDetail} exact/>
+          <Route path='/:movieType' component={Movies} exact />
+          <Route path='/movies/search' component={SearchPage} exact/>
+          <Route path='/movies/:movieId' component={MovieDetail} exact />
         </Switch>
         <Footer />
       </BrowserRouter>

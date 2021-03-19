@@ -21,7 +21,7 @@ const Movies = (props) => {
 
   return (
     <>
-      <SearchBar navHistory={props.history} />
+      {movieType === 'now_playing' ? <SearchBar navHistory={props.history} /> : ''}
       <section id='movieListSection' >
         <h2 id='pageTitle'>{H2_HEADING_OPTIONS[movieType]}</h2>
         <div className='movieContainer'>

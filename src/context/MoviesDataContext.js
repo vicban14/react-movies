@@ -1,4 +1,4 @@
-import createDataContext from './createDataContext'
+import { createDataContext } from './createDataContext'
 import apiService from '../api/apiService'
 import env from 'react-dotenv'
 const PREFIX_TMDB_URL =  'movie'
@@ -50,14 +50,8 @@ const getSimilarMoviesById = (dispatch) => async ({movieId}) => {
 }
 
 const searchMovieByTitle = (dispatch) => async (text) => {
-  console.log(text)
-  await apiService.get(`/search/movie?api_key=${env.API_MOVIE_DB}&language=es-ES&page=${SEARCH_PAGES}&query=${text}/`)
-  .then((response) => {
-    dispatch({ type: 'GET_MOVIE_BY_TITLE', payload: response.data.results })
-  })
-  .catch((error) => {
-    console.log(error)
-  })
+  const response = await apiService.get(`/search/movie?api_key=${env.API_MOVIE_DB}&language=es-ES&page=${SEARCH_PAGES}&query=${text}/`)
+  dispatch({ type: 'GET_MOVIE_BY_TITLE', payload: response.data.results })
 }
 
 

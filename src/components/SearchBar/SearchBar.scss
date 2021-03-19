@@ -1,0 +1,22 @@
+@import '../../styles/Colors.scss';
+
+.searchBarContainer {
+  margin: 2em 4em 0;
+
+  #searchBar {
+    background-color: $darkest;
+    border: 3px solid $solid;
+    border-radius: 20px;
+    color: $light;
+    font-weight: bold;
+    height: 3em;
+    outline: none;
+    padding: 1em;
+    width: 50em;
+  }
+
+  #searchBar::placeholder {
+    color: $light;
+    font-weight: bold;
+  }
+}

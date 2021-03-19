@@ -20,6 +20,9 @@ const Header = () => {
         <NavLink to='/top_rated'>
           <span className='top-rated'>Más votadas</span>
         </NavLink>
+        <NavLink to='/movies/search'>
+          <span>Buscar película</span>
+        </NavLink>
       </div>
     </header>
   )

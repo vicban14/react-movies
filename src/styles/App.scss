@@ -8,3 +8,24 @@
 a {
   all: unset;
 }
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  header {
+    height: 8vh;
+    max-height: 8vh;
+  }
+
+  #movieListSection {
+    height: 100%;
+    min-height: 84vh;
+  }
+
+  footer {
+    height: 8vh;
+    max-height: 8vh;
+  }
+}
