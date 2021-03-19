@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react'
 import { Context as MovieContext} from '../../context/MoviesDataContext'
-import env from 'react-dotenv'
 import './SimilarMovies.scss'
 import { NavLink } from 'react-router-dom'
 
@@ -20,9 +19,9 @@ const SimilarMovies = ({movieId}) => {
         {state.similarMovies.map((movie, i) => {
           if (i <= 4 ) {
             return (
-            <NavLink to={`/movies/${movie.id}`} >
-              <div className="similarMovie" key={i} >
-                <img src={`${env.IMAGES_BASE_URL}${movie.backdrop_path}`} alt={`${movie.title}`} />
+            <NavLink to={`/movies/${movie.id}`} key={i} >
+              <div className="similarMovie" >
+                <img src={`${process.env.REACT_APP_IMAGES_BASE_URL}${movie.backdrop_path}`} alt={`${movie.title}`} />
                 <div>
                   <h3>{movie.title} ({movie.vote_average})</h3>
                 </div>

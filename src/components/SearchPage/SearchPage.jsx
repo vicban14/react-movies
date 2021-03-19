@@ -14,9 +14,9 @@ function SearchPage() {
 
 const mapFilms = (state) => {
   if (state.moviesSearchResult.length > 0) {
-    return state.moviesSearchResult.map(movie => {
+    return state.moviesSearchResult.map((movie, i) => {
       return (
-        <div className='searchedMovieContainer'>
+        <div className='searchedMovieContainer' key={i} >
           <span>{movie.title}</span>
         </div>
       )

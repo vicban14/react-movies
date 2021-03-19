@@ -1,6 +1,5 @@
 import { createDataContext } from './createDataContext'
 import apiService from '../api/apiService'
-import env from 'react-dotenv'
 const PREFIX_TMDB_URL =  'movie'
 const SEARCH_PAGES = 1
 
@@ -20,7 +19,7 @@ const moviesReducer = (state, action)  => {
 }
 
 const getMoviesByCategory = (dispatch) => async ({movieType}) => {
-  await apiService.get(`/${PREFIX_TMDB_URL}/${movieType}?api_key=${env.API_MOVIE_DB}&language=es-ES&region=ES`)
+  await apiService.get(`/${PREFIX_TMDB_URL}/${movieType}?api_key=${process.env.REACT_APP_API_MOVIE_DB}&language=es-ES&region=ES`)
   .then((response) => {
     dispatch({ type: 'GET_MOVIES_BY_CATEGORY', payload: response.data.results })
   })
@@ -30,7 +29,7 @@ const getMoviesByCategory = (dispatch) => async ({movieType}) => {
 }
 
 const getMovieById = (dispatch) => async ({movieId}) => {
-  await apiService.get(`/${PREFIX_TMDB_URL}/${movieId}?api_key=${env.API_MOVIE_DB}&language=es-ES`)
+  await apiService.get(`/${PREFIX_TMDB_URL}/${movieId}?api_key=${process.env.REACT_APP_API_MOVIE_DB}&language=es-ES`)
   .then((response) => {
     dispatch({ type: 'GET_MOVIES_BY_ID', payload: response.data })
   })
@@ -40,7 +39,7 @@ const getMovieById = (dispatch) => async ({movieId}) => {
 }
 
 const getSimilarMoviesById = (dispatch) => async ({movieId}) => {
-  await apiService.get(`/${PREFIX_TMDB_URL}/${movieId}/similar?api_key=${env.API_MOVIE_DB}&language=es-ES`)
+  await apiService.get(`/${PREFIX_TMDB_URL}/${movieId}/similar?api_key=${process.env.REACT_APP_API_MOVIE_DB}&language=es-ES`)
   .then((response) => {
     dispatch({ type: 'GET_SIMILAR_MOVIES_BY_ID', payload: response.data.results })
   })
@@ -50,7 +49,7 @@ const getSimilarMoviesById = (dispatch) => async ({movieId}) => {
 }
 
 const searchMovieByTitle = (dispatch) => async (text) => {
-  const response = await apiService.get(`/search/movie?api_key=${env.API_MOVIE_DB}&language=es-ES&page=${SEARCH_PAGES}&query=${text}/`)
+  const response = await apiService.get(`/search/movie?api_key=${process.env.REACT_APP_API_MOVIE_DB}&language=es-ES&page=${SEARCH_PAGES}&query=${text}/`)
   dispatch({ type: 'GET_MOVIE_BY_TITLE', payload: response.data.results })
 }
 

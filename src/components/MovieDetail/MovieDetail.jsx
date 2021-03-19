@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from 'react'
-import env from 'react-dotenv'
 import { Context as MovieContext} from '../../context/MoviesDataContext'
 import SimilarMovies from '../SimilarMovies/SimilarMovies'
 import './MovieDetail.scss'
@@ -23,7 +22,7 @@ const MovieDetail = ({match}) => {
     return (
       <section>
         <div id='detailContainer'>
-          <img src={`${env.IMAGES_BASE_URL}${movieDataInfo.poster_path}`} alt={`${movieDataInfo.title}`} />
+          <img src={`${process.env.REACT_APP_IMAGES_BASE_URL}${movieDataInfo.poster_path}`} alt={`${movieDataInfo.title}`} />
           <div id='infoContainer'>
             <h2>{movieDataInfo.title} <span>({obtainYearDate(movieDataInfo.release_date)})</span></h2>
             <ul>
