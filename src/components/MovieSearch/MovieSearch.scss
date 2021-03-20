@@ -1,0 +1,43 @@
+@import '../../styles/Colors.scss';
+
+$container-height: 8em;
+$container-width: 40em;
+
+.movieSearched {
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px $dark;
+  display: flex;
+  justify-content: flex-start;
+  height: $container-height;
+  margin: 2em 1em;
+  width: $container-width;
+
+  .imageSearchContainer {
+    img {
+      border-bottom: 1px solid $light;
+      border-radius: 15px 0px 0px 15px;
+      height: $container-height;
+      width: 5.5em;
+    }
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+
+    h3 {
+      font-size: 0.9em;
+    }
+    p {
+      padding-top: 0.5em;
+      font-size: 1em;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      font-size: 0.8em;
+    }
+  }
+}

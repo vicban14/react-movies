@@ -1,15 +1,19 @@
 import React, { useContext } from 'react'
-import { Context as MovieContext } from '../../context/MoviesDataContext.js'
-import Movie from '../Movie/Movie.jsx'
+import { Context as MovieContext } from '../../context/MoviesDataContext'
+import MovieSearch from '../MovieSearch/MovieSearch'
+import SearchBar from '../SearchBar/SearchBar'
 import './SearchPage.scss'
 
-function SearchPage() {
+function SearchPage(props) {
   const { state } = useContext(MovieContext)
 
   return (
-    <section id='movieListSection'>
-    {mapFilms(state)}
-    </section>
+    <>
+      <SearchBar navHistory={props.history} />
+      <section id='movieSearchListSection'>
+        {mapFilms(state)}
+      </section>
+    </>
   )
 }
 
@@ -18,7 +22,7 @@ const mapFilms = (state) => {
     return state.moviesSearchResult.map((movie, i) => {
       return (
         <div className='searchedMovieContainer' key={i} >
-          <Movie movieData={movie} page='search' />
+          <MovieSearch movieData={movie} />
         </div>
       )
     })
