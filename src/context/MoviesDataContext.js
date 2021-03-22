@@ -8,7 +8,7 @@ const moviesReducer = (state, action)  => {
     case 'GET_MOVIES_BY_CATEGORY':
       return { ...state, movies: action.payload };
     case 'GET_MOVIES_BY_ID':
-      return { ...state, movieDataInfo: action.payload};
+      return { ...state, movieDataInfo: action.payload, moviesSearchResult:[] };
     case 'GET_SIMILAR_MOVIES_BY_ID':
       return { ...state, similarMovies: action.payload};
     case 'GET_MOVIE_BY_TITLE':

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { NavLink } from 'react-router-dom'
 import { Context as MovieContext } from '../../context/MoviesDataContext'
 import MovieSearch from '../MovieSearch/MovieSearch'
 import SearchBar from '../SearchBar/SearchBar'
@@ -22,7 +23,9 @@ const mapFilms = (state) => {
     return state.moviesSearchResult.map((movie, i) => {
       return (
         <div className='searchedMovieContainer' key={i} >
-          <MovieSearch movieData={movie} />
+          <NavLink to={`/movies/${movie.id}`}>
+            <MovieSearch movieData={movie} />
+          </NavLink>
         </div>
       )
     })
