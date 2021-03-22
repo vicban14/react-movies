@@ -31,3 +31,11 @@ In the project directory, you can run:
 ```
 yarn start
 ```
+
+## Future Improvements
+
+1. Adapt the web to be responsive.
+2. Deep reading of Sass documentation and use good practices in .scss files.
+3. Add CRUD and connect with database.
+4. Save favourite films in user database.
+5. Expand the website to TV Shows, actors and actresses.
